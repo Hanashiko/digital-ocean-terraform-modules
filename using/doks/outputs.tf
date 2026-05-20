@@ -1,5 +1,5 @@
 output "cluster_id" {
-  description = "UUID кластера."
+  description = "Cluster UUID."
   value       = module.doks.cluster_id
 }
 
@@ -26,18 +26,13 @@ output "kube_config_host" {
 }
 
 output "kube_config_expires_at" {
-  description = "Коли закінчується токен kubeconfig."
+  description = "kubeconfig token expiry date."
   value       = module.doks.kube_config_expires_at
   sensitive   = true
 }
 
-# sensitive outputs — не відображаються автоматично, тільки явно
 output "kubeconfig" {
-  description = <<-EOT
-    Raw kubeconfig YAML. Зберегти:
-      tofu output -raw kubeconfig > ~/.kube/config
-      chmod 600 ~/.kube/config
-  EOT
+  description = "Raw kubeconfig YAML. Save with: tofu output -raw kubeconfig > ~/.kube/config && chmod 600 ~/.kube/config"
   value     = module.doks.kubeconfig
   sensitive = true
 }

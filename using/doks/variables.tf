@@ -1,33 +1,32 @@
 variable "cluster_name" {
-  description = "Назва кластера."
+  description = "Cluster name."
   type        = string
   default     = "zomro-dev"
 }
 
 variable "region" {
-  description = "DigitalOcean регіон."
+  description = "DigitalOcean region."
   type        = string
   default     = "fra1"
 }
 
 variable "kubernetes_version" {
   description = <<-EOT
-    Версія Kubernetes. Актуальний список:
+    Kubernetes version. Available versions:
       doctl kubernetes options versions
-    Приклад: "1.32.2-do.0"
+    Example: "1.32.2-do.0"
   EOT
   type        = string
-  # Не ставимо default — версія має бути явно задана в tfvars,
-  # щоб уникнути непередбаченого дрейфу при плані.
+  # No default — version must be explicitly set in tfvars to avoid unexpected drift on plan.
 }
 
 variable "env" {
-  description = "Ім'я оточення (dev, staging, prod). Використовується для тегів і лейблів."
+  description = "Environment name (dev, staging, prod). Used for tags and labels."
   type        = string
   default     = "dev"
 }
 
-# Опціонально: якщо хочеш передавати токен через змінну замість env
+# Optional: pass the token as a variable instead of env
 # variable "do_token" {
 #   description = "DigitalOcean API token."
 #   type        = string

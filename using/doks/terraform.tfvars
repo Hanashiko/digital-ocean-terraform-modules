@@ -1,6 +1,6 @@
 # envs/dev/terraform.tfvars
-# Цей файл можна комітити (без токенів!).
-# Токен передавати через env: export DIGITALOCEAN_TOKEN="dop_v1_..."
+# Safe to commit (no tokens!).
+# Pass the token via env: export DIGITALOCEAN_TOKEN="dop_v1_..."
 
 cluster_name       = "temporary-test-cluster"
 region             = "ams3"
